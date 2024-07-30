@@ -1,6 +1,6 @@
-# SWOT_Gateway
+# SemWoT Mediator
 
-In this project, the SWoT-Mediator is presented. On the one hand, this mediator provides a user-friendly RESTful API and at the same time integrates its own scripting API, which enables programming-language-independent interaction with things. On the other hand, a semantic enrichment of the raw data is done in RDF Turtle format, which enables a direct interpretation. This project contributes to improving efficiency and interoperability in the IoT field, and opens up new possibilities for the integration of IoT devices and the further processing of the exchanged data.
+In this project, the SemWoT Mediator is presented. The SemWoT Mediator integrates Web of Things Devices into the Semantic Web by mapping the interaction affordances of WoT devices accessable via a RESTful Read-Write Linked Data HTTP interface. The RESTful HTTP interface is generated mapping IoT protcols to HTTP and data to RDF. 
 
 ## Preconditions
 
