@@ -11,9 +11,7 @@ aio: rdf:type owl:Ontology ;
     dcterms:title "Actionable IoT Ontology" ;
     dcterms:creator "Peter Schiller" , "Michael Freund" ;
     dcterms:description """
-    The Actionable IoT Ontology (AIO) captures the interaction patterns and functionalities within the Internet of Things (IoT) domain. 
-    It defines key classes to represent interactions with IoT devices, focusing on the "status" field that reflects the current state after an interaction.
-    """ ;
+    The Actionable IoT Ontology (AIO) is used to model interactions with a SemWoT mediator.""" ;
     vann:preferredNamespacePrefix "aio" ;
     owl:versionInfo "0.1" .
 
