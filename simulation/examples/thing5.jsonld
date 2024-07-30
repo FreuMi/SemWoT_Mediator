@@ -1,0 +1,95 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        "https://www.w3.org/2022/wot/td/v1.1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "urn:uuid:0804d572-cce8-422a-bb7c-4412fcd56f06",
+    "@type": "Thing",
+    "title": "thing5",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "basic_sc",
+    "properties": {
+        "rpm": {
+            "type": "integer",
+            "unit": "RPM",
+            "minimum": 0,
+            "maximum": 1000,
+            "readOnly": true,
+            "writeOnly": false,
+            "description": "returns a simulated rpm",
+            "forms": [
+                {
+                    "href": "http://${ip}:${port}/thing5",
+                    "contentType": "application/json",
+                    "op": "readproperty",
+                    "htv:methodName": "GET"
+                }
+            ]
+        }
+    },
+    "actions": {
+        "moveMotor": {
+            "title": "move  motor",
+            "description": "The motor can be operated between 0 and 1000 revolutions per minute and returns true if rpm is achieved.",
+            "input": {
+                "type": "integer",
+                "unit": "RPM",
+                "minimum": 0,
+                "maximum": 1000
+            },
+            "output": {
+                "type": "boolean"
+            },
+            "forms": [{
+                "op": "invokeaction",
+                "href": "http://${ip}:${port}/thing5/moveMotor",
+                "contentType": "application/json",
+                "htv:methodName": "POST"
+            }]
+        },
+        "getMotorStatus": {
+            "title": "motor status",
+            "description": "get motor status",
+            "output": {
+                "type": "boolean"
+            },
+            "forms": [{
+                "op": "invokeaction",
+                "href": "http://${ip}:${port}/thing5/getMotorStatus",
+                "contentType": "application/json",
+                "htv:methodName": "POST"
+            }]
+        },
+        "setTemperatureThreshold": {
+            "title": "temp threshold",
+            "description": "set a temperature threshold.",
+            "input" : {
+                "type": "integer"
+            },
+            "forms": [{
+                "op": "invokeaction",
+                "href": "http://${ip}:${port}/thing5/setTemperatureThreshold",
+                "contentType": "application/json",
+                "htv:methodName": "POST"
+            }]
+        },
+        "stopMotor": {
+            "title": "stop motor",
+            "description": "Stops the motor.",
+            "forms": [{
+                "op": "invokeaction",
+                "href": "http://${ip}:${port}/thing5/stopMotor",
+                "contentType": "application/json",
+                "htv:methodName": "POST"
+            }]
+        }
+    }
+}
+

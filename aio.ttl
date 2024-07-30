@@ -1,0 +1,69 @@
+@prefix aio: <https://paul.ti.rw.fau.de/~jo00defe/SemWoT/aio#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms#> .
+@prefix dct: <http://purl.org/dc/terms#> .
+@prefix vann: <http://vocab.org/vann#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+aio: rdf:type owl:Ontology ;
+    dcterms:title "Actionable IoT Ontology" ;
+    dcterms:creator "Peter Schiller" , "Michael Freund" ;
+    dcterms:description """
+    The Actionable IoT Ontology (AIO) captures the interaction patterns and functionalities within the Internet of Things (IoT) domain. 
+    It defines key classes to represent interactions with IoT devices, focusing on the "status" field that reflects the current state after an interaction.
+    """ ;
+    vann:preferredNamespacePrefix "aio" ;
+    owl:versionInfo "0.1" .
+
+aio:InteractionInvocation rdf:type rdfs:Class ;
+    rdfs:label "Interaction Invocation" ;
+    rdfs:comment "Used to describe an interaction with a Thing." .
+
+aio:status rdf:type rdf:Property ;
+    rdfs:label "hasStatus" ;
+    rdfs:comment "Returns the current status of the Thing that was executed by the action." ;
+    rdfs:domain aio:InteractionInvocation ;
+    rdfs:range xsd:string .
+
+aio:resultTime rdf:type rdf:Property ;
+    rdfs:label "hasResultTime" ;
+    rdfs:comment "Returns the time of access." ;
+    rdfs:domain aio:InteractionInvocation ;
+    rdfs:range xsd:dateTimeStamp .
+
+aio:WritePropertyInteraction rdf:type rdfs:Class ;
+    rdfs:label "Write Property" ;
+    rdfs:comment "Allows the use of the write property functionality by providing a value." ;
+    rdfs:subClassOf aio:InteractionInvocation .
+
+aio:ActionInvocationInteraction rdf:type rdfs:Class ;
+    rdfs:label "Action Invocation" ;
+    rdfs:comment "An action that allows invoking a function of the Thing, which manipulates states or triggers a process on the Thing." ;
+    rdfs:subClassOf aio:InteractionInvocation .
+
+aio:EventSubscriptionInteraction rdf:type rdfs:Class ;
+    rdfs:label "Event Subscription" ;
+    rdfs:comment "Responsible for subscribing to events from a Thing, implemented using short polling." ;
+    rdfs:subClassOf aio:InteractionInvocation .
+
+aio:InvocationInput rdf:type rdfs:Class ;
+    rdfs:label "Invocation Input" ;
+    rdfs:comment "Describes the input of an invocation such as datatype or numerical value" .
+
+aio:InvocationOutput rdf:type rdfs:Class ;
+    rdfs:label "Invocation Output" ;
+    rdfs:comment "Describes the output of an invocation such as datatype or numerical value" .
+
+aio:hasInvocationInput rdf:type rdf:Property ;
+    rdfs:label "hasInvocationInput" ;
+    rdfs:comment "Aligns an interaction invocation with its input information." ;
+    rdfs:domain aio:InteractionInvocation ;
+    rdfs:range aio:InvocationInput .
+
+aio:hasInvocationOutput rdf:type rdf:Property ;
+    rdfs:label "hasInvocationOutput" ;
+    rdfs:comment "Aligns an interaction invocation with its output information." ;
+    rdfs:domain aio:InteractionInvocation ;
+    rdfs:range aio:InvocationOutput .

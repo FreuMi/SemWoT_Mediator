@@ -1,0 +1,11 @@
+@prefix aio: <https://storage.inrupt.com/3bedf714-7aba-402e-af9b-1c2591bfcafd/ActionableIoTOntology.ttl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+[] rdf:type aio:ActionInvocationInteraction ;
+    aio:hasInvocationInput [
+        rdf:type xsd:integer ;
+        rdf:value 42
+    ] ;
+    aio:status "initialization" ;
+    aio:resultTime "N/A" .

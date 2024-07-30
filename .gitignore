@@ -1,0 +1,5 @@
+/node_modules
+plan
+test/eval/eval_readProp_direct.txt
+test/eval/eval_readProp_med.txt
+

@@ -1,0 +1,65 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        "https://www.w3.org/2022/wot/td/v1.1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "urn:uuid:0804d572-cce8-422a-bb7c-4412fcd56f06",
+    "@type": "Thing",
+    "title": "thing3",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "basic_sc",
+    "properties": {
+        "temperature": {
+            "type": "number",
+            "unit": "Celsius",
+            "observable": false,
+            "readOnly": true,
+            "writeOnly": false,
+            "description": "returns a simulated temperature value",
+            "forms": [
+                {
+                    "href": "http://${ip}:${port}/thing3/temp",
+                    "contentType": "application/json",
+                    "op": "readproperty",
+                    "htv:methodName": "GET"
+                }
+            ]
+        },
+        "barometer": {
+            "type": "number",
+            "unit": "ATM",
+            "readOnly": true,
+            "writeOnly": false,
+            "description": "return the atmosphere pressure",
+            "forms": [
+                {
+                    "href": "http://${ip}:${port}/thing3/pressure",
+                    "contentType": "application/json",
+                    "op": "readproperty",
+                    "htv:methodName": "GET"
+                }
+            ]
+        },
+        "lightIntensity": {
+            "type": "integer",
+            "unit": "LUX",
+            "description": "lightIntensity doesn't have a type",
+            "forms": [
+                {
+                    "href": "http://${ip}:${port}/thing3/lightIntensity",
+                    "contentType": "application/json",
+                    "op": "readproperty",
+                    "htv:methodName": "GET"
+                }
+            ]
+        }
+    }
+}
+

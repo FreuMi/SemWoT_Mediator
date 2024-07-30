@@ -1,0 +1,51 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        "https://www.w3.org/2022/wot/td/v1.1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "urn:uuid:0804d572-cce8-422a-bb7c-4412fcd56f06",
+    "@type": "Thing",
+    "title": "thing6",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "basic_sc",
+    "properties": {
+        "statusSimple": {
+            "type": "integer",
+            "observable": false,
+            "readOnly": true,
+            "writeOnly": false,
+            "description": "test hasSimpleResult: no unit is valid",
+            "forms": [
+                {
+                    "href": "http://${ip}:${port}/thing6/statusSimple",
+                    "contentType": "application/json",
+                    "op": "readproperty",
+                    "htv:methodName": "GET"
+                }
+            ]
+        },
+        "statusWrite": {
+            "type": "integer",
+            "observable": false,
+            "readOnly": false,
+            "writeOnly": true,
+            "descriptioni": "test writeProperty interaction",
+            "forms": [
+                {
+                    "href:": "http://${ip}:${port}/thing6/statusWrite",
+                    "contentType": "application/json",
+                    "op": "writeproperty",
+                    "htv:methodName": "POST"
+                }
+            ]
+        }
+    }
+}
+

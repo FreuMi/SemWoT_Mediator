@@ -1,0 +1,11 @@
+{
+    "dependencies": {
+        "@node-wot/binding-http": "0.8.5",
+        "@node-wot/core": "0.8.1",
+        "axios": "1.4.0",
+        "express": "^5.0.0-alpha.8",
+        "n3": "1.16.4",
+        "urdf": "https://github.com/derwehr/uRDF.js.git",
+        "uuid": "9.0.0"
+    }
+}

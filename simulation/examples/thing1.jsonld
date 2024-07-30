@@ -1,0 +1,52 @@
+{
+    "@context": [
+        "https://www.w3.org/2019/wot/td/v1",
+        "https://www.w3.org/2022/wot/td/v1.1",
+        {
+            "@language": "en"
+        }
+    ],
+    "id": "urn:uuid:0804d572-cce8-422a-bb7c-4412fcd56f06",
+    "@type": "Thing",
+    "title": "thing1",
+    "securityDefinitions": {
+        "nosec_sc": {
+            "scheme": "nosec"
+        }
+    },
+    "security": "basic_sc",
+    "properties": {
+        "temperature": {
+            "type": "integer",
+            "unit": "Celsius",
+            "observable": false,
+            "readOnly": true,
+            "writeOnly": false,
+            "description": "returns a simulated temperature value",
+            "forms": [
+                {
+                    "href": "http://${ip}:${port}/thing1",
+                    "contentType": "application/json",
+                    "op": "readproperty",
+                    "htv:methodName": "GET"
+                }
+            ]
+        }
+    },
+    "events": {
+        "overheating": {
+            "description": "The event returns a value increased by 20 degrees after each request.",
+            "type": "integer",
+            "forms": [
+                {
+                    "href": "http://${ip}:${port}/thing1/overheating",
+                    "contentType": "application/json",
+                    "op": ["subscribeevent", "unsubscribeevent"],
+                    "htv:methodName": "GET",
+                    "subprotocol": "longpoll"
+                }
+            ]
+        }
+    }
+}
+
